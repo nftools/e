@@ -3,9 +3,37 @@
 * https://github.com/nfTools/e
 * @nfoxDev
 
-Public myFoxPc,myePc,my_pc
+* nfTools e():
 
-* vfp9 syntax:
+Public myFoxPc,myePc,my_pc, oResponse
+
+* construct rich response or pass objects with ease:
+
+Select * From Home()+'samples\northwind\customers' Into Array Cust
+Cursortoxml(Alias(),"xml")
+
+oResponse = e('cursor','customers','rows',@Cust,'count',_Tally,'dt',Datetime(),'xml',m.xml)
+
+* aggregated objects:
+
+myePc = e('modelName','Ryzen Performance Plus','color','black',;
+	'keyboard.specs.colors(2)','white','black',;
+	'keyboard.specs.lang(3)','es','us','sp',;
+	'cpu',;
+	e('model','ryzen 7','clockSpeed',4.3,'coreCount',8),;
+	'motherboard',;
+	e('formfactor','atx','make','asus'),;
+	'hdds(3)',;
+	e('capacity','500G','type','ssd','connectors(3)','sata','power','esata'),;
+	e('capacity','256G','type','M2'),;
+	e('capacity','2T','type','standard'),;
+	'monitors(2)',;
+	e('size',24,'brand','acer'),;
+	e('size',20,'brand','aoc');
+	)
+
+
+* vfp9 syntax comparison:
 
 myFoxPc = Createobject('empty')
 
@@ -14,14 +42,14 @@ With myFoxPc
 	AddProperty(myFoxPc,'modelName','Ryzen Performance Plus')
 	AddProperty(myFoxPc,'color','black')
 	AddProperty(myFoxPc,'keyboard',Createobject('empty'))
-	
+
 	AddProperty(.Keyboard,'specs',Createobject('empty'))
 
 	With .Keyboard
 
 		AddProperty(.specs,'colors(2)')
-		.specs.Colors(1) = 'black'
-		.specs.Colors(2) = 'white'
+		.specs.ColorS(1) = 'black'
+		.specs.ColorS(2) = 'white'
 
 		AddProperty(.specs,'lang(3)')
 		.specs.Lang(1) = 'sp'
@@ -46,7 +74,7 @@ With myFoxPc
 	AddProperty(.hdds(1),'capacity','500gb')
 	AddProperty(.hdds(1),'type','ssd')
 	AddProperty(.hdds(1),'connectors(3)')
-	
+
 	.hdds(1).connectors(1) = 'sata'
 	.hdds(1).connectors(2) = 'power'
 	.hdds(1).connectors(3) = 'esata'
@@ -58,23 +86,6 @@ With myFoxPc
 Endwith
 
 
-* nfTools e():
-
-myePc = e('modelName','Ryzen Performance Plus','color','black',;
-	'keyboard.specs.colors(2)','white','black',;
-	'keyboard.specs.lang(3)','es','us','sp',;
-	'cpu',;
-	e('model','ryzen 7','clockSpeed',4.3,'coreCount',8),;
-	'motherboard',;
-	e('formfactor','atx','make','asus'),;
-	'hdds(3)',;
-	e('capacity','500G','type','ssd','connectors(3)','sata','power','esata'),;
-	e('capacity','256G','type','M2'),;
-	e('capacity','2T','type','standard'),;
-	'monitors(2)',;
-	e('size',24,'brand','acer'),;
-	e('size',20,'brand','aoc');
-	)
 
 * using underscore:
 
