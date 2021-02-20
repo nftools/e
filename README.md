@@ -1,9 +1,15 @@
 # e()
-## Construct complex aggregated objects using a clean & readable syntax:
+## Construct complex aggregated objects 
+## using a clean & readable syntax
+
+## Important: 
+requires underscore https://raw.githubusercontent.com/nftools/underscore/master/_.prg 
+
 
 ```
 * Marco Plaza, 2021
 * https://github.com/nfTools/e
+* ( requires underscore https://raw.githubusercontent.com/nftools/underscore/master/_.prg )
 * @nfoxDev
 *
 
