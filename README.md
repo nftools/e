@@ -12,9 +12,17 @@ requires underscore https://raw.githubusercontent.com/nftools/underscore/master/
 * @nfoxDev
 * 
 
-Public myFoxPc,myePc,my_pc
+Public myFoxPc,myePc,my_pc, oResponse
 
-* nfTools e():
+* construct rich response or pass objects with ease:
+
+Select * From Home()+'samples\northwind\customers' Into Array Cust
+Cursortoxml(Alias(),"xml")
+
+oResponse = e('cursor','customers','rows',@Cust,'count',_Tally,'dt',Datetime(),'xml',m.xml)
+
+
+* aggregated objects:
 
 myePc = e('modelName','Ryzen Performance Plus','color','black',;
 	'keyboard.specs.colors(2)','white','black',;
