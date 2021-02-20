@@ -9,9 +9,8 @@ requires underscore https://raw.githubusercontent.com/nftools/underscore/master/
 ```
 * Marco Plaza, 2021
 * https://github.com/nfTools/e
-* ( requires underscore https://raw.githubusercontent.com/nftools/underscore/master/_.prg )
 * @nfoxDev
-*
+* 
 
 Public myFoxPc,myePc,my_pc
 
