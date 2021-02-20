@@ -1,11 +1,11 @@
-# e
-construct complex aggregated objects using a clean & readable syntax:
+# e()
+## Construct complex aggregated objects using a clean & readable syntax:
 
-´´´´
-*
+```
 * Marco Plaza, 2021
 * https://github.com/nfTools/e
 * @nfoxDev
+*
 
 Public myFoxPc,myePc,my_pc
 
@@ -123,4 +123,4 @@ With _(my_pc)
 
 Endwith
 
-´´´´
+```
